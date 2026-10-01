@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
   const stations = [
-    { id: 'radio1', name: 'Rádió 1', artist: 'Pop & Sláger', src: 'https://icast.connectmedia.hu/5201/live.mp3', logo: 'https://onlinestream.live/logos/5626.png' },
-    { id: 'petofi', name: 'Petőfi Rádió', artist: 'Mai Zene & Pop', src: 'https://icast.connectmedia.hu/4738/mr2.mp3', logo: 'https://onlinestream.live/logos/1702.png' },
-    { id: 'foxradio', name: 'Fox Radio', artist: 'Klasszikus Slágerek', src: 'http://stream.foxradio.rs:8545/;stream', logo: 'https://onlinestream.live/logos/6289.png' },
-    { id: 'csukas', name: 'Csukás Meserádió', artist: 'Gyermek & Mese', src: 'https://mr-stream.connectmedia.hu/4611/mr10.mp3', logo: 'https://onlinestream.live/logos/9370.png' },
-    { id: 'momo_zene', name: 'Momó Gyerekrádió', artist: 'Gyermekzene', src: 'https://s03.diazol.hu:7092/zene.mp3', logo: 'https://onlinestream.live/logos/6360.png' },
-    { id: 'momo_mese', name: 'Momó Meserádió', artist: 'Esti Mesék & Hangoskönyv', src: 'https://s03.diazol.hu:7092/mese.mp3', logo: 'https://onlinestream.live/logos/6360.png' },
-    { id: 'pluszfm', name: 'Plusz FM', artist: 'Nagyvárad Stream', src: 'https://stream2.radiotransilvania.ro/Nagyvarad', logo: 'https://onlinestream.live/logos/1507.png' },
-    { id: 'danubius', name: 'Danubius Rádió', artist: 'Pop & Slágerek', src: 'https://stream.danubiusradio.hu:443/danubius_192k', logo: 'https://onlinestream.live/logos/5986.png' },
-    { id: 'slager', name: 'Sláger FM', artist: 'Klasszikus Slágerek', src: 'https://slagerfm.netregator.hu:7813/slagerfm128.mp3', logo: 'https://onlinestream.live/logos/1804.png' },
-    { id: 'forras', name: 'Forrás Rádió', artist: 'Helyi Slágerek', src: 'http://91.82.85.44:1630/forrasradio.mp3', logo: 'https://onlinestream.live/logos/3071.png' },
-    { id: 'retro', name: 'Retro Rádió', artist: 'Retro Slágerek', src: 'https://icast.connectmedia.hu/5001/live.mp3', logo: 'https://onlinestream.live/logos/6204.png' },
-    { id: 'kossuth', name: 'Kossuth Rádió', artist: 'Hírek & Beszélgetés', src: 'https://icast.connectmedia.hu/4724/mr1ex.aac', logo: 'https://onlinestream.live/logos/1701.png' },
-    { id: 'bartok', name: 'Bartók Rádió', artist: 'Klasszikus Zene', src: 'https://icast.connectmedia.hu/4739/mr3.aac', logo: 'https://onlinestream.live/logos/1703.png' },
-    { id: 'danko', name: 'Dankó Rádió', artist: 'Népzene & Magyarnóta', src: 'https://icast.connectmedia.hu/4747/mr7.aac', logo: 'https://onlinestream.live/logos/1706.png' },
-    { id: 'maria', name: 'Mária Rádió', artist: 'Keresztény & Lélek', src: 'http://www.mariaradio.hu:8000/mr', logo: 'https://onlinestream.live/logos/2047.png' }
+    { id: 'radio1', name: 'Rádió 1', artist: 'Pop & Sláger', src: 'https://icast.connectmedia.hu/5201/live.mp3' },
+    { id: 'petofi', name: 'Petőfi Rádió', artist: 'Mai Zene & Pop', src: 'https://icast.connectmedia.hu/4738/mr2.mp3' },
+    { id: 'foxradio', name: 'Fox Radio', artist: 'Klasszikus Slágerek', src: 'http://stream.foxradio.rs:8545/;stream' },
+    { id: 'csukas', name: 'Csukás Meserádió', artist: 'Gyermek & Mese', src: 'https://mr-stream.connectmedia.hu/4611/mr10.mp3' },
+    { id: 'momo_zene', name: 'Momó Gyerekrádió', artist: 'Gyermekzene', src: 'https://s03.diazol.hu:7092/zene.mp3' },
+    { id: 'momo_mese', name: 'Momó Meserádió', artist: 'Esti Mesék & Hangoskönyv', src: 'https://s03.diazol.hu:7092/mese.mp3' },
+    { id: 'pluszfm', name: 'Plusz FM', artist: 'Nagyvárad Stream', src: 'https://stream2.radiotransilvania.ro/Nagyvarad' },
+    { id: 'danubius', name: 'Danubius Rádió', artist: 'Pop & Slágerek', src: 'https://stream.danubiusradio.hu:443/danubius_192k' },
+    { id: 'slager', name: 'Sláger FM', artist: 'Klasszikus Slágerek', src: 'https://slagerfm.netregator.hu:7813/slagerfm128.mp3' },
+    { id: 'forras', name: 'Forrás Rádió', artist: 'Helyi Slágerek', src: 'http://91.82.85.44:1630/forrasradio.mp3' },
+    { id: 'retro', name: 'Retro Rádió', artist: 'Retro Slágerek', src: 'https://icast.connectmedia.hu/5001/live.mp3' },
+    { id: 'kossuth', name: 'Kossuth Rádió', artist: 'Hírek & Beszélgetés', src: 'https://icast.connectmedia.hu/4724/mr1ex.aac' },
+    { id: 'bartok', name: 'Bartók Rádió', artist: 'Klasszikus Zene', src: 'https://icast.connectmedia.hu/4739/mr3.aac' },
+    { id: 'danko', name: 'Dankó Rádió', artist: 'Népzene & Magyarnóta', src: 'https://icast.connectmedia.hu/4747/mr7.aac' },
+    { id: 'maria', name: 'Mária Rádió', artist: 'Keresztény & Lélek', src: 'http://www.mariaradio.hu:8000/mr' }
   ];
 
   let favorites = JSON.parse(localStorage.getItem('radio_favs') || '[]');
@@ -44,13 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Kezdeti nyíl beállítás (felfelé mutat zárva)
   if (miniExpandBtn) miniExpandBtn.textContent = '▲';
 
-  function getLogoHTML(logoStr, altText = '') {
-    if (logoStr && (logoStr.startsWith('http://') || logoStr.startsWith('https://') || logoStr.startsWith('/'))) {
-      return `<img src="${logoStr}" alt="${altText}" class="station-img-logo">`;
-    }
-    return logoStr || '📻';
-  }
-
   function renderMiniPlaylist() {
     if (!miniPlaylistEl) return;
     miniPlaylistEl.innerHTML = '';
@@ -64,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       li.className = `mini-playlist-item ${realIndex === currentIndex ? 'active' : ''}`;
       
       li.innerHTML = `
-        <div class="mini-item-avatar">${getLogoHTML(st.logo, st.name)}</div>
+        <div class="mini-item-avatar">📻</div>
         <div class="mini-item-info">
           <span class="mini-item-title">${st.name}</span>
           <span class="mini-item-artist">${st.artist}</span>
@@ -104,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (miniTitle) miniTitle.textContent = st.name;
     if (miniArtist) miniArtist.textContent = st.artist;
-    if (miniAvatar) miniAvatar.innerHTML = getLogoHTML(st.logo, st.name);
+    if (miniAvatar) miniAvatar.textContent = '📻';
 
     renderMiniPlaylist();
 
