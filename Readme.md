@@ -94,6 +94,7 @@ The stations array is located at the beginning of the `radio.js` file. You can a
   logo: 'https://logo-image-url-goes-here.png' 
 }
 ```
+The radio stream links and logos included in this project are for demonstration purposes only. All copyrights remain the property of their respective radio broadcasters.
 
 ---
 
@@ -192,3 +193,4 @@ A `radio.js` fájl elején található a stations tömb. Új adót a következő
   logo: '[https://logo-kep-url-eloehuzva.png](https://logo-kep-url-eloehuzva.png)' 
 }
 ```
+A projektben szereplő rádióstream-linkek és logók kizárólag demonstrációs célt szolgálnak. Minden szerzői jog a mindenkori rádióadók tulajdonát képezi.
