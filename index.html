@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Különálló Web Rádió Player</title>
+    <!-- Rádió stíluslap csatolása -->
+    <link rel="stylesheet" href="radio.css">
+</head>
+<body style="background: #0b1120; min-height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center; color: #fff; font-family: Inter, sans-serif;">
+
+    <div style="text-align: center;">
+        <h1 style="margin-bottom: 10px;">Önálló Rádió Player Sablon</h1>
+        <p style="color: #94a3b8; font-size: 14px;">A rádió a jobb alsó sarokban lebegve működik.</p>
+    </div>
+
+    <!-- GLOBÁLIS MASTER AUDIO -->
+    <audio id="master-audio" preload="auto"></audio>
+
+    <!-- GLOBÁLIS EGYSOROS MINIPLAYER -->
+    <div id="global-miniplayer" class="mini-player-floating">
+      <div class="mini-row-main">
+        <div id="mini-avatar" class="mini-avatar">📻</div>
+        <div class="mini-info">
+          <div id="mini-title" class="mini-title">Válassz adót</div>
+          <div id="mini-artist" class="mini-artist">-</div>
+        </div>
+        <div class="mini-actions-inline">
+          <button id="mini-sleep-btn" class="mini-btn-timer" title="Elalvási időzítő">⏱ <span id="mini-timer-badge"></span></button>
+          <button id="mini-play-btn" class="mini-play-btn" title="Lejátszás/Szünet">▶</button>
+          
+          <div class="mini-volume-box">
+            <button class="mini-btn-mute" id="mini-mute-btn" title="Némítás">🔊</button>
+            <input type="range" id="mini-volume-slider" min="0" max="1" step="0.05" value="0.8">
+          </div>
+
+          <button id="mini-expand-btn" class="mini-expand-btn" title="Adólista">▲</button>
+        </div>
+      </div>
+
+      <div class="mini-expandable-content">
+        <div class="mini-search-box">
+          <input type="text" id="mini-playlist-search" placeholder="Keresés adó vagy műfaj szerint...">
+          <span class="search-icon">🔍</span>
+        </div>
+        <div class="mini-playlist-wrapper">
+          <ul id="mini-playlist" class="mini-playlist"></ul>
+          <div id="mini-no-results" class="mini-no-results" style="display: none;">Nincs találat</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rádió vezérlő JavaScript csatolása -->
+    <script src="radio.js"></script>
+</body>
+</html>

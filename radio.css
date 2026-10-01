@@ -1,0 +1,310 @@
+/* ====== TELJESEN EGYSOROS, ALACSONY LEBEGŐ MINIPLAYER ====== */
+.mini-player-floating {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 16px;
+  padding: 8px 12px;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  color: #f8fafc;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  width: 380px;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.mini-row-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.mini-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.mini-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mini-info {
+  flex-grow: 1;
+  overflow: hidden;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.mini-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mini-artist {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mini-actions-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.mini-btn-timer, .mini-expand-btn, .mini-play-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mini-btn-timer {
+  padding: 4px 6px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+}
+
+.mini-btn-timer.active {
+  background: rgba(59, 130, 246, 0.3);
+  border-color: var(--blue, #3b82f6);
+  color: white;
+}
+
+.mini-play-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--blue, #3b82f6);
+  color: white;
+  font-size: 0.85rem;
+  border: none;
+}
+
+/* Alapból felfelé mutató nyíl */
+.mini-expand-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+}
+
+.mini-btn-timer:hover, .mini-expand-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+/* Hangerő szabályzó a miniplayerben */
+.mini-volume-box {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+
+.mini-btn-mute {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#mini-volume-slider {
+  accent-color: var(--blue, #3b82f6);
+  width: 45px;
+  cursor: pointer;
+  height: 4px;
+}
+
+.mini-expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin-top 0.4s ease, opacity 0.3s ease;
+  margin-top: 0;
+  opacity: 0;
+}
+
+/* Kinyitott állapot */
+.mini-player-floating.expanded .mini-expandable-content {
+  max-height: 220px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 8px;
+  opacity: 1;
+}
+
+.mini-search-box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.mini-search-box input {
+  width: 100%;
+  padding: 5px 26px 5px 8px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: white;
+  font-size: 0.75rem;
+  outline: none;
+}
+
+.mini-search-box .search-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* Playlist görgető illesztése a miniplayer dizájnjához */
+.mini-playlist-wrapper {
+  max-height: 150px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.4) rgba(0, 0, 0, 0.2);
+}
+
+.mini-playlist-wrapper::-webkit-scrollbar {
+  width: 5px;
+}
+
+.mini-playlist-wrapper::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.mini-playlist-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 4px;
+}
+
+.mini-playlist-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+
+.mini-playlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mini-playlist-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  gap: 6px;
+  transition: 0.2s;
+}
+
+.mini-playlist-item:hover {
+  background: rgba(59, 130, 246, 0.15);
+}
+
+.mini-playlist-item.active {
+  background: rgba(59, 130, 246, 0.25);
+  border-color: var(--blue, #3b82f6);
+}
+
+.mini-item-avatar {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.mini-item-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mini-item-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  text-align: left;
+}
+
+.mini-item-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mini-item-artist {
+  font-size: 0.6rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mini-no-results {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-align: center;
+  padding: 8px;
+}
+
+@media (max-width: 600px) {
+  .mini-player-floating {
+    width: calc(100% - 30px);
+    right: 15px;
+    bottom: 15px;
+  }
+}
